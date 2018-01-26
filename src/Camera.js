@@ -16,7 +16,18 @@ import {
   UIManager,
 } from 'react-native';
 
-const CameraManager = NativeModules.CameraManager || NativeModules.CameraModule;
+const CameraManager = __DEV__ ? {
+  Aspect: null,
+  BarCodeType: null,
+  Type: null,
+  CaptureMode: null,
+  CaptureTarget: null,
+  CaptureQuality: null,
+  Orientation: null,
+  FlashMode: null,
+  Zoom: null,
+  TorchMode: null,
+} : NativeModules.CameraManager || NativeModules.CameraModule;
 
 function convertNativeProps(props) {
   const newProps = { ...props };
